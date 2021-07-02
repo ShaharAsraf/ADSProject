@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'html_pages/base.html' %}
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Test</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center mw-100">
+        <div class="container col-xl-6 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center"
+             style="text-align: center">
+            <form action="{% url 'test_vote' test_item.itemID %}" method="post">
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                {% csrf_token %}
+                {{ test_item.first_option }}
+                <input type="radio" name="choice" value="1">
+                <input type="radio" name="choice" value="2">
+                <input type="radio" name="choice" value="3">
+                <input type="radio" name="choice" value="4">
+                <input type="radio" name="choice" value="5">
+                {{ test_item.second_option }}
+                <div id="answer_button" class="w-25 d-flex mx-auto align-self-center"
+                     style="text-decoration-line: none">
+                    <input type="submit" value="Next" class="answer_button">
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock %}
+</body>
+</html>

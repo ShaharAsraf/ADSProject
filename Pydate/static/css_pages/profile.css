@@ -1,0 +1,161 @@
+body {
+    background: url('/static/images/background/background.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    align-content: center;
+    color: white;
+    font-family: SansSerif;
+}
+
+.navbar {
+    background-color: #fff3fc;
+    color: #ffffff;
+    border-radius: 6px;
+}
+
+#logo {
+    color: #ffffff;
+    font-size: 37px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 7px 20px;
+    letter-spacing: 3px;
+    opacity: 90%;
+    border: #C89EA3 solid 1px;
+    transition: all 300ms ease-in-out;
+}
+
+#logo:hover {
+    opacity: 100%;
+    transform: scale(1.05, 1.05);
+}
+
+.navbar-nav {
+    float: right !important;
+}
+
+.nav-item {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: normal;
+    float: right !important;
+    margin-right: 13px;
+    margin-left: 13px;
+    background-color: #400037;
+    border-radius: 55px;
+    padding: 0px 15px;
+    transition: all 300ms ease-in-out;
+}
+
+.nav-item a {
+    color: #ffffff;
+    transition: all 300ms ease-in-out;
+}
+
+.nav-item:hover {
+    opacity: 100%;
+}
+
+.nav-item:hover a {
+    color: #ffffff;
+}
+
+.navbar-toggler {
+    background-color: #C89EA3;
+}
+
+.navbar-toggler-icon {
+    background-color: #D9AFB4;
+    color: #fff;
+}
+
+/**
+ * Panels
+ */
+/*** General styles ***/
+.panel {
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    color: white;
+    background-color: grey;
+    opacity: 0.9;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+}
+
+.panel-heading {
+    border-bottom: 0;
+}
+
+.panel-title {
+    font-size: 17px;
+    color: white;
+}
+
+.panel-title > small {
+    font-size: .75em;
+    color: white;
+}
+
+.panel-body *:first-child {
+    margin-top: 0;
+
+}
+
+
+
+.panel-default > .panel-heading {
+    color: #333333;
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.07);
+}
+
+form label {
+    color: #999999;
+    font-weight: 400;
+}
+
+.form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+@media (min-width: 768px) {
+    .form-horizontal .control-label {
+        text-align: right;
+        margin-bottom: 0;
+        padding-top: 7px;
+    }
+}
+
+.profile__contact-info-icon {
+    float: left;
+    font-size: 18px;
+    color: #999999;
+}
+
+.profile__contact-info-body {
+    overflow: hidden;
+    padding-left: 20px;
+    color: #999999;
+}
+
+.profile-avatar {
+    width: 200px;
+    position: relative;
+    margin: 196px auto 0;
+    border: 4px solid lightblue;
+}
+
+#description {
+    height: 80px;
+    min-height: 60px;
+    max-height: 150px;
+    -ms-overflow-style: auto;
+}
+
+#description::-webkit-scrollbar {
+    display: none;
+}

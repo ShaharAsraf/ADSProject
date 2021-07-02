@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% extends 'html_pages/base.html' %}
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>PyDate</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'chatStyle.css' %}">
+        <script src="{% static "chatScript.js" %}"></script>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center mw-100">
+            {% if display %}
+                <script>
+                    function allowDrop(ev) {
+                        ev.preventDefault();
+                    }
+
+                    function drag(ev) {
+                        ev.dataTransfer.setData("Url", "{% url 'yes_crush'  name %}");
+                    }
+
+                    function drop_crush(ev) {
+                        ev.preventDefault();
+                        window.location = "{% url 'yes_crush'  name %}";
+                    }
+
+                    function drop_no_crush(ev) {
+                        ev.preventDefault();
+                        window.location = "{% url 'no_crush'  name %}";
+                    }
+                </script>
+
+                <label class="question">{{ nick }}, {{ age }}</label>
+                <p style="text-align:center;"><img src="{{ media_url }}{{ photo }}" alt="profile_pic" width="500"
+                                                   title="Drag the image to the bin or to the heart"
+                                                   draggable="true" ondragstart="drag(event)"
+                                                   height="350" class="m-0 p-0"/></p>
+                <label class="question"> {{ loc }} km away</label>
+                <label class="question">{{ desc }}</label>
+                <label class="question"></label>
+
+                <a href="{% url 'no_crush'  name %}"> <img src="{% static "images/decline.png" %}" width="96"
+                                                           height="70" id="decline" draggable="false"
+                                                           ondrop="drop_no_crush(event)"
+                                                           ondragover="allowDrop(event)"
+                                                           title="Drag there if you want to decline"></a></button>
+                <a href="{% url 'yes_crush' name %}"> <img src="{% static "images/accept.png" %}" width="96" height="70"
+                                                           id="accept" draggable="false"
+                                                           ondrop="drop_crush(event)"
+                                                           ondragover="allowDrop(event)"
+                                                           title="Drag there if you want to accept"></a></button>
+
+                <label class="question" style="color: gray">Drag the image in the bin or to the heart</label>
+            {% else %}
+
+            {% endif %}
+            </form>
+            </div>
+        </div>
+        {{ username|json_script:"username" }}
+    </main>
+{% endblock %}
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
+</body>
+</html>

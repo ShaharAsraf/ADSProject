@@ -1,0 +1,201 @@
+#chat-list-button {
+    border-radius: 25px;
+    background: pink;
+    padding: 40px 40px 70px;
+    width: 180px;
+    height: 2px;
+    text-align: center;
+    font-family: SansSerif, sans-serif;
+    font-size: 20px;
+    color: white;
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+}
+
+#chat-list-window {
+    display: none;
+    border-radius: 5px;
+    background: pink;
+    padding: 20px;
+    font-family: SansSerif, sans-serif;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 50%;
+}
+
+.chat-history {
+    width: 180px;
+    float: left;
+}
+
+.search {
+    padding: 20px;
+}
+
+.search input {
+    border-radius: 3px;
+    border: none;
+    padding: 14px;
+    color: white;
+    background: #6A6C75;
+    width: 90%;
+    font-size: 14px;
+}
+
+.history ul {
+    display: block;
+    padding: 20px;
+    height: 80%;
+}
+
+.history li {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: lightpink;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    cursor: grab;
+}
+
+.chat {
+    font-family: SansSerif, sans-serif;
+    display: block;
+    position: fixed;
+    bottom: 50px;
+}
+
+.popup-chat-list {
+    display: inline-block;
+    position: fixed;
+    bottom: 50px;
+    right: 250px;
+    font-family: SansSerif, sans-serif;
+    padding: 5px;
+}
+
+.chat-popup {
+    display: inline-block;
+    width: 230px;
+    border-radius: 10px;
+    border: 3px solid pink;
+    background: white;
+}
+
+.chat-popup-header {
+    display: block;
+    background: pink;
+    height: 20px;
+    font-family: sans-serif;
+
+}
+
+.chat-popup-header-close {
+    display: inline-block;
+    float: right;
+    padding-left: 4px;
+    padding-right: 4px;
+    background: lightpink;
+    cursor: default;
+    color: white;
+}
+
+.chat-popup-header-name {
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 15px;
+}
+
+.chat-popup-body {
+    display: block;
+    background: white;
+    border-top: 0;
+    min-height: 150px;
+    border-radius: 10px;
+    border-bottom: 3px solid pink;
+    overflow-scrolling: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 190px;
+}
+
+.chat-popup-body ul {
+    display: table-row;
+    padding: 5px;
+    max-height: 100px;
+    height: 120px;
+    scroll-behavior: smooth;
+    wrap-option: soft-wrap;
+    overflow-wrap: normal;
+}
+
+.chat-popup-body li {
+    display: table-cell;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    wrap-option: soft-wrap;
+    overflow-wrap: break-word;
+}
+
+.messages {
+}
+
+.message-right {
+    border-radius: 10px;
+    background: lightblue;
+    float: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: border-box;
+    overflow-wrap: break-word;
+    wrap-option: soft-wrap;
+}
+
+.message-left {
+    border-radius: 10px;
+    background: pink;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: border-box;
+    overflow-wrap: break-word;
+    wrap-option: soft-wrap;
+}
+
+.chat-popup-input {
+    display: inline-block;
+    border-radius: 5px;
+    background: white;
+
+    border: 2px solid white;
+}
+
+.chat-popup-input > textarea {
+    border-radius: 5px;
+    display: inline-block;
+    outline: none;
+    border: none;
+    height: 30px;
+    wrap-option: soft-wrap;
+    overflow-wrap: break-spaces;
+    columns: 40;
+    width: 173px;
+    resize: none;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+.chat-popup-input > button {
+    outline: none;
+    border: none;
+    display: inline-block;
+    border-radius: 20px;
+    background: lightpink;
+    padding: 10px;
+    box-shadow: 1px 1px hotpink;
+}

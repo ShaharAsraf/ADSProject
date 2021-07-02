@@ -1,0 +1,110 @@
+.container {
+    background-color: #ABC0CC;
+    padding: 30px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+}
+
+.question {
+    text-align: center;
+    width: 100%;
+    min-height: 30px;
+    font-size: 20px;
+}
+
+.solution {
+    text-align: left;
+    width: 100%;
+    min-height: 30px;
+    font-size: 20px;
+}
+
+#answer {
+    float: left;
+    width: 100%;
+    min-height: 36px;
+    margin: 10px auto;
+    font-size: 20px;
+    border: #eee solid 2px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.answer:active {
+    transform: scale(1.01, 1.01);
+    transition: transform 20ms ease-in-out;
+}
+
+.answer:focus {
+    transition: all 100ms ease-in-out;
+    background-color: #f1b0b7;
+    border: #eee solid 2px;
+}
+
+#accept {
+    #background-color: #1c7430;
+    #border: #fff solid 1px;
+    padding: 5px 10px;
+    display: block;
+    margin: 5%;
+    float: right;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#accept:hover {
+    opacity: 0.70;
+    transform: scale(1.05, 1.05);
+    filter: alpha(opacity=70);
+}
+
+#decline {
+    #background-color: #c82333;
+    #border: #fff solid 1px;
+    margin: 5%;
+    padding: 5px 10px;
+    float: left;
+    display: block;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#decline:hover {
+    opacity: 0.70;
+    transform: scale(1.02, 1.02);
+    filter: alpha(opacity=70);
+}
+
+#profpic {
+    color: #ffffff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-size: 37px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px 40px;
+    letter-spacing: 3px;
+    opacity: 90%;
+    border: #C89EA3 solid 1px;
+    transition: all 300ms ease-in-out;
+}
+
+#profpic:hover {
+    opacity: 100%;
+    transform: scale(1.04, 1.04);
+}
+
+#profpic2:hover {
+    opacity: 100%;
+    transform: scale(1.04, 1.04);
+}

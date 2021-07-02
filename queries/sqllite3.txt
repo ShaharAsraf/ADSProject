@@ -1,0 +1,94 @@
+
+
+
+CREATE TABLE user_static_data
+(
+userID int AUTOINCREMENT PRIMARY KEY,
+birth VARCHAR(20) NOT NULL ,
+facbook VARCHAR(50),
+instagram VARCHAR(50),
+sex int NOT NULL,
+personality int NOT NULL
+);
+
+
+CREATE TABLE user_dynamic_data
+(
+userID int PRIMARY KEY,
+descrition varchar (250) ,
+photoID BLOB NOT NULL,
+location varchar(50) NOT NULL,
+nick VARCHAR(50) NOT NULL
+);
+
+
+ALTER TABLE user_dynamic_data ADD FOREIGN KEY (userID) REFERENCES user_static_data(userID) ;
+
+
+
+
+CREATE TABLE personal_question_users
+(
+questionID int NOT NULL PRIMARY KEY,
+userID int NOT NULL
+);
+
+CREATE TABLE personal_question_content
+(
+questionID int AUTO_INCREMENT PRIMARY KEY,
+content VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE personal_question_answear
+(
+userID int NOT NULL,
+questionID int NOT NULL,
+content VARCHAR(150)
+);
+
+ALTER TABLE personal_question_users ADD FOREIGN KEY (userID) REFERENCES user_static_data(userID) ;
+ALTER TABLE personal_question_users ADD FOREIGN KEY (questionID) REFERENCES personal_question_content(questionID) ;
+
+ALTER TABLE personal_question_answear ADD FOREIGN KEY (userID) REFERENCES user_static_data(userID) ;
+ALTER TABLE personal_question_answear ADD FOREIGN KEY (questionID) REFERENCES personal_question_content(questionID) ;
+
+
+CREATE TABLE starter_quetion
+(
+questionID int AUTO_INCREMENT PRIMARY KEY,
+content VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE chat
+(
+chatID int AUTO_INCREMENT PRIMARY KEY,
+user1ID	int NOT NULL,
+user2ID int NOT NULL,
+agreement int DEFAULT 0
+);
+
+CREATE TABLE chat_message
+(
+chatID int NOT NULL PRIMARY KEY,
+message VARCHAR(300),
+date int NOT NULL
+);
+
+ALTER TABLE chat ADD FOREIGN KEY (user1ID) REFERENCES user_static_data(userID) ;
+ALTER TABLE chat ADD FOREIGN KEY (user2ID) REFERENCES user_static_data(userID) ;
+
+ALTER TABLE chat_message ADD FOREIGN KEY (chatID) REFERENCES chat(chatID) ;
+
+
+CREATE TABLE user_log
+(
+userID int PRIMARY KEY NOT NULL,
+logins int DEFAULT 1,
+likes_sent int DEFAULT 0,
+likes_receive int DEFAULT 0,
+mess_sent int DEFAULT 0,
+mess_receive int DEFAULT 0
+);
+
+
+ALTER TABLE user_log ADD FOREIGN KEY (userID) REFERENCES user_static_data(userID) ;

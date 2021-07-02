@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>PyDate</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+    {% endblock %}
+</head>
+<body>
+
+{% block navbar %}
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-xl">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse ml-auto" id="main-menu">
+                <ul class="navbar-nav navbar-right ml-auto">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/view_people">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/my_matches">Matches</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile/">Edit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/info/">Dating places</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "logout" %}">Log out</a>
+                        </li>
+
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../login">Log in</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../register">Register</a>
+                        </li>
+                    {% endif %}
+                    <span style="clear: both"></span>
+                </ul>
+            </div>
+        </nav>
+    </header>
+{% endblock %}
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center mw-100">
+        <h1 id="pydateintro" class="col-11 col-lg-8 text-center align-self-center">
+            Welcome to ADS &hearts;
+        </h1>
+        <div class="container col-xl-6 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center">
+            <div id="app_description" class="text-justify">
+                <a href="../../login">
+                    <div id="invite_text" class="invite_text d-inline-block col-5 mr-3 px-0 text-center">Log in</div>
+                </a>
+                <a href="../../register">
+                    <div class="invite_text d-inline-block col-5 ml-3 px-0 text-center float-right">Join us!</div>
+                </a>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+<!-- js scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

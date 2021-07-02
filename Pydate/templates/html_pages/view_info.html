@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'html_pages/base.html' %}
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Information</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center  mw-100">
+        <h1 id="pydateintro" class="col-11 col-lg-8 text-center align-self-center" style="color: #242424; font-weight:bold">
+            Dating places
+        </h1>
+        <div class="container col-xl-5 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <div id="app_description" class="text-justify align-self-center">
+                <p style="font-size:30px; text-align: center"><a style="color: #242424" href="https://easy.co.il/list/Parks-and-Gardens?c2=2024&c3=21919&c4=21916" target="_blank">Parks</a></p>
+            </div>
+        </div>
+        <div class="container col-xl-5 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <div id="app_description" class="text-justify align-self-center">
+
+                <p style="font-size:30px; text-align: center"><a style="color: #242424" href="https://easy.co.il/list/Restaurants-and-Fast-Food?c2=24944&c3=3721&c4=2024" target="_blank">Resturants</a></p>
+            </div>
+        </div>
+        <div class="container col-xl-5 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <div id="app_description" class="text-justify align-self-center">
+                  <p style="font-size:30px; text-align: center"><a style="color: #242424" href="https://easy.co.il/list/Malls-and-Shopping-Centers?c2=2024&c3=21919" target="_blank">Shopping Malls</a></p>
+            </div>
+        </div>
+        <div class="container col-xl-5 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <div id="app_description" class="text-justify align-self-center">
+
+                  <p style="font-size:30px; text-align: center"><a style="color: #242424" href="https://easy.co.il/list/Cafes?c2=3721&c3=21916" target="_blank">Coffees</a></p>
+            </div>
+        </div>
+         <div class="container col-xl-5 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <div id="app_description" class="text-justify align-self-center">
+                  <p style="font-size:30px; text-align: center"><a style="color: #242424" href="https://easy.co.il/list/Movie-Theaters?c2=21919" target="_blank">Cinemas</a></p>
+            </div>
+        </div>
+         <div class="container col-xl-5 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <div id="app_description" class="text-justify align-self-center">
+                 <p style="font-size:30px; text-align: center"><a style="color: #242424" href="https://www.aisrael.org/?showMap=&CategoryID=1227&TrekAreaID=27&TrekCityID=207&TrekTypeID=101&Icon4=1&TrekSearchParam=" target="_blank">Custom search</a></p>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+</body>
+</html>

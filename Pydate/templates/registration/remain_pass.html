@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'html_pages/base.html' %}
+{% load list_item %}
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Forgot password</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+        <style>
+
+        </style>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center mw-100">
+        <div class="container col-xl-6 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <form action="/remind_pass/" method="post">
+                {% csrf_token %}
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    <label class="question">Enter your nickname</label>
+                    {% for field in form %}
+                        {{ field }}
+                        {{ field.errors }}
+                    {% endfor %}
+
+                {% endfor %}
+                <button type="submit" class="btn btn-primary submit_questionnaire" id="submit_questionnaire">Send
+                    email
+                </button>
+            </form>
+        </div>
+    </main>
+{% endblock %}
+
+</body>
+</html>

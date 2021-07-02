@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'html_pages/base.html' %}
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Log in</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+        <link rel="stylesheet" href="{% static "css_pages/login.css" %}"/>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center mw-100">
+        <h1 id="invitation_div" class="col-11 col-lg-8 text-center align-self-center">
+            Let's log in and see who's the best match for you today!
+        </h1>
+        <div class="container col-xl-6 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <form method="post">
+
+                {% csrf_token %}
+
+                {{ form }}
+                <button id="submit_login" class="mx-auto" type="submit" value="Log in">Log in</button>
+
+            </form>
+            <a href="/remind_pass/">
+                <button id="submit_login" class="mx-auto" type="submit" value="Log in">Forgot password</button>
+            </a>
+        </div>
+
+    </main>
+{% endblock %}
+</body>
+</html>

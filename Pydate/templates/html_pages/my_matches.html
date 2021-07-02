@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'html_pages/base.html' %}
+{% load list_item %}
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>My matches</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+        <link rel="stylesheet" href="{% static "css_pages/my_matches.css" %}"/>
+        <style>
+        </style>
+    {% endblock %}
+    <style>
+
+    </style>
+</head>
+<body>
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center mw-100">
+        <div class="container col-xl-6 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            {% if display_no_matches_info %}
+                <h id="no_matches">
+                    You have no matches yet, go to the <a href="/">home page</a> and search for people! &hearts;
+                </h>
+            {% else %}
+                {% for match in matches_data %}
+                    <div class="mw-100">
+
+                        <h id="username" class="d-block">
+                            Name: <span style="font-weight: bold">{{ match.username }}</span>
+                        </h>
+                        <div style="display:flex;border-bottom: 3px solid #bbb; padding-bottom:24px">
+                            <div>
+                                 <img id="profile_picture" src="{{ media_url }}{{ match.photo }}" >
+                            </div>
+                            <div style="padding-left:30px">
+                                <p>
+                                    Description: {{ match.description }}
+                                </p>
+                                  <p>
+                                      Chat: <a href="{{ match.whatsapp }}" target="_blank">Whatsapp link</a>
+                                  </p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </main>
+{% endblock %}
+
+</body>
+</html>

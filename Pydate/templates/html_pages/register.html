@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'html_pages/base.html' %}
+<html lang="en">
+<head>
+    {% block header %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Register</title>
+        <!-- css sheets -->
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css_pages/base.css" %}"/>
+        <link rel="stylesheet" href="{% static "css_pages/register.css" %}"/>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <main class="d-flex row min-vh-100 justify-content-center mw-100">
+        <h1 id="invitation_div" class="col-11 col-lg-8 text-center align-self-center">
+            Join ADS to meet you soulmate
+        </h1>
+        <div class="container col-xl-6 col-lg-4 col-md-6 col-sm-6 col-9 justify-content-center align-self-center">
+            <form action="/register/" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        {{ field.help_text }}
+                    {% endif %}
+                    {{ field.errors }}
+                {% endfor %}
+                <button id="submit_registration" class="mx-auto" type="submit" value="Register">Register</button>
+            </form>
+        </div>
+    </main>
+    <script src="{% static  "js/register_handler.js" %}"></script>
+{% endblock %}
+
+</body>
+</html>

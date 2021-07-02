@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'chatStyle.css' %}">
+    <link type="text/javascript" href="{% static 'chatScript.js' %}">
+</head>
+<body>
+
+<div class="chat">
+    <div id="popup-chat-list" class="popup-chat-list"></div>
+    <p id="chat-list-button" onmouseover="displayChat()">
+        Chats
+    </p>
+
+    <div id="chat-list-window" onmouseover="displayChat()" onmouseleave="hideChat()">
+        <div class="chat-history">
+            <div class="search">
+                <input id="search-input" type="text" placeholder="search" oninput="findPersonOnList()">
+            </div>
+            <div class="history">
+                <ul>
+                    {% for mes in chats %}
+                        <li class="person" onclick="openChat('{{ mes.chat_id }}','{{ mes.username }}')">
+                            {{ mes.username }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div> <!-- end chat-window -->
+</div>
+{{ username|json_script:"username" }}
+<script src="{% static "chatScript.js" %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
